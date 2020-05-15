@@ -1,0 +1,100 @@
+List of Files
+==============
+CAttatchMent.java  
+-----------------
+Implementation of IAttatchMent interface.
+Has been implemented as per the guidlines given by 
+TVM team
+
+CMail.java         
+----------
+Implementation of IMail interface
+Has been implemented as per the guidlines given by 
+TVM team. But need a Subdirectory having the Name
+SCRATCH , where the Classes are deployed. The Directory
+is meant for Saving the AttatchMents.
+
+CMailbox.java
+-------------
+Implementation of IMailbox interface
+
+
+  Notes on Following 
+
+    public boolean   IsNewMailAvailable() 
+    public int getNewMailCount()
+ 
+        Won't Work as of Now because of certain side effects
+        which these Calls may have on the Server State. The 
+        JavaMail Provider given by the Sun is not able to set
+        the Messages as ANSWERED or DRAFT. ony option it 
+        allows is DELETE ( at least with a POP server ).
+        Check whether this works with IMAP.   
+
+    public IMail[] getNewMails()
+        Is not Working properly with the Current Provider
+        supplied with the Sun. we are not able to set
+        the Filter . ( See the implementation )    
+
+ 
+
+
+CMailboxException.java
+----------------------
+Exception Thrown by CMailbox
+
+
+CMailConnectionManager.java
+---------------------------
+Implementation of IMailConnectionManager
+Has been implemented as per the guidlines given by 
+TVM team
+
+
+IAttatchMent.java
+-----------------
+interface declaration
+Has been declared as per the guidlines given by 
+TVM team
+
+IMail.java
+----------
+interface declaration
+Has been declared as per the guidlines given by 
+TVM team
+
+
+IMailbox.java
+-------------
+interface declaration
+
+Added a Method by the Name close to synchronize save 
+Has been declared as per the guidlines given by 
+TVM team
+
+
+IMailConnectionManager.java
+---------------------------
+interface declaration
+Has been declared as per the guidlines given by 
+TVM team
+
+
+MailFilter.java
+---------------
+An Abstract Class Which can act as a Robot Client 
+extends thread and has got a run method . run relies
+on subclass implementation of HandleMessage
+
+SaveMailFilter.java
+-------------------
+A Sample SubClass of MailFilter which Dumps the content of 
+a mail and Saves the AttatchMent if any to Sub Directorry SCRATCH. One can customize 
+this for a production system.
+
+
+
+
+
+
+
